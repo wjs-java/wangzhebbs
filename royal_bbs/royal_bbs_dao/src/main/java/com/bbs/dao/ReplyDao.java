@@ -1,4 +1,4 @@
 package com.bbs.dao;
-/*wefuhwefoewfhnoweihnf*/
+/*wefuhwefoewfhnoweihnf了*/
 public interface ReplyDao {
 }
