@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
-/*测试*/
+
 @Controller
 @RequestMapping("/user")
-/*112233*/
+/*11223333*/
 public class UserController {
     @Autowired
     private UserService userService;
