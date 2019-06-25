@@ -15,7 +15,12 @@ public interface UserDao {
     @Select("select * from bbs_user_table")
     List<User> findAll();
 
+    /**
+     * 根据用户名和密码获取用户
+     * @param userName
+     * @param userPass
+     * @return
+     */
     @Select("select * from bbs_user_table where userName = #{userName} and userPass = #{userPass}")
-    User login(String userName, String userPass);
-
+    User findByUserNameAndPassword(String userName, String userPass);
 }

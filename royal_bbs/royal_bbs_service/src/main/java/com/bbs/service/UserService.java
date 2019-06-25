@@ -11,12 +11,12 @@ public interface UserService {
      */
     List<User> findAll();
 
+
     /**
-     * 用户登录
+     * 根据用户名和密码查找数据
      * @param userName
      * @param userPass
      * @return
-     * @throws Exception
      */
-    User login(String userName, String userPass)throws Exception;
+    User  findByUserNameAndPassword(String userName, String userPass);
 }

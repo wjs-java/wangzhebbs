@@ -15,12 +15,31 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    /**
+     * 查询所有用户
+     * @return
+     */
     @RequestMapping("/findAll.do")
     public ModelAndView findAll(){
         ModelAndView mv = new ModelAndView();
         List<User> users = userService.findAll();
         mv.addObject("users",users);
         mv.setViewName("test");
+        return mv;
+    }
+
+    /**
+     * 用户登录
+     * @param userName
+     * @param userPass
+     * @return
+     */
+    @RequestMapping("/login.do")
+    public ModelAndView login(String userName,String userPass){
+        ModelAndView mv = new ModelAndView();
+        User user = userService.findByUserNameAndPassword(userName,userPass);
+        mv.addObject("loginUser",user);
+        mv.setViewName("index");
         return mv;
     }
 }

@@ -20,11 +20,13 @@
                     <div class="dialogTop" style="height:25px;">
                         <a href="javascript:;" class="closeDialogBtn">关闭</a>
                     </div>
+
+
                     <form action="user/login.do" method="post">
                         <ul class="editInfos">
                             <li>用户名：<input type="text" id="userName" name="userName" class="ipt"/></li>
                             <li>密&nbsp;&nbsp;&nbsp;码：<input type="password" id="userPass" name="userPass" class="ipt"/></li>
-                            <li><input type="submit" value="登录" class="submitBtn"/></li>
+                            <li><input type="submit" value="登录" class="submitBtn" id="submit-btn"/></li>
                         </ul>
                     </form>
                 </div>
@@ -51,6 +53,10 @@
               $("#j_fixedBar").show();
           });
       });
+
+      // $('#submit-btn').click(function () {
+      //
+      // })
   });
 </script>
 </html>

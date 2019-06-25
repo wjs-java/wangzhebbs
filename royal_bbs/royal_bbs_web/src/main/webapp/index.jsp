@@ -10,9 +10,12 @@
 <head>
     <title>Title</title>
 </head>
+
 <body>
 
     <jsp:forward page="/article/findAll.do"/>
 
+
 </body>
+
 </html>

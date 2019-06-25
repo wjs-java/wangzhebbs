@@ -18,7 +18,7 @@
 
 
 <!-- 头部 -->
-<jsp:include page="common/header.jsp" />
+<jsp:include page="jsp/common/header.jsp" />
 
 
 
@@ -229,12 +229,12 @@
 
 
 <!-- 底部 -->
-<jsp:include page="common/footer.jsp"/>
+<jsp:include page="jsp/common/footer.jsp"/>
 
 
 
 <!-- 回复弹出框 -->
-<form action="" method="post">
+<form action="reply/saveReply.do" method="post">
     <div class="pop-box ft-box">
         <div class="mask"></div>
         <div class="win">
@@ -249,7 +249,7 @@
             </div>
             <div class="win_ft">
                 <div class="win_ft_in">
-                    <input type="submit" class="btn" value="回复"/>
+                    <input type="submit" class="btn" value="回复" />
 					<input type="hidden" id="commentId" name="commentId"/>
                 </div>
             </div>
@@ -271,13 +271,14 @@
 //弹出回复框
 function showDialog(num, commentId) {
 	var loginUser = "${loginUser}";
-	if(!loginUser){
-		alert("请登录");
-		return;
-	}
+	// if(!loginUser){
+	// 	alert("请登录");
+	// 	return;
+	// }
 	$("#commentId").val(commentId);
     $('.pop-box').css('display', 'block');
     $("#floorSpan").html(num);
 }
+
 </script>
 </html>
