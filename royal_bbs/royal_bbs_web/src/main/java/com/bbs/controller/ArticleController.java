@@ -53,7 +53,7 @@ public class ArticleController {
         ModelAndView mv = new ModelAndView();
         List<Article> articleList = articleService.findAll();
         mv.addObject("articleList", articleList);
-        mv.setViewName("index");
+        mv.setViewName("index-old");
         return mv;
 
     }
