@@ -14,4 +14,8 @@ public interface UserDao {
      */
     @Select("select * from bbs_user_table")
     List<User> findAll();
+
+    @Select("select * from bbs_user_table where userName = #{userName} and userPass = #{userPass}")
+    User login(String userName, String userPass);
+
 }

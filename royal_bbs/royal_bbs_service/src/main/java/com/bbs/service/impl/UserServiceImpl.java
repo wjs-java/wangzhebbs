@@ -19,4 +19,19 @@ public class UserServiceImpl implements UserService {
     public List<User> findAll() {
         return userDao.findAll();
     }
+
+    /**
+     * 用户登录
+     * @param userName
+     * @param userPass
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public User login(String userName, String userPass) throws Exception {
+
+        User user = userDao.login(userName, userPass);
+
+        return user;
+    }
 }

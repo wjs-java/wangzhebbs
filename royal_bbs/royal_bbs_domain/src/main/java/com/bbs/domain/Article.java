@@ -16,7 +16,7 @@ public class Article implements Serializable {
     private Integer replyCount;//评论数
     private Integer upvoteCount;//点赞数
     private Integer browseCount;//浏览数
-    private Integer zoneId;//所在交流区id
+    private Integer zoneId;//所在交流区idf
     private Integer isReport;//举报状态
 
     public Integer getArticleId() {

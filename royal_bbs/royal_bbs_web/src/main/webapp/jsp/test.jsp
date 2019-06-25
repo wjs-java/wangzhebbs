@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-测试成功
+<jsp:forward page="article/findAll.do"/>
 </body>
 </html>

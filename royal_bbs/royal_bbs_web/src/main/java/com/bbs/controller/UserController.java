@@ -11,7 +11,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/user")
-/*1122*/
+
 public class UserController {
     @Autowired
     private UserService userService;
@@ -24,4 +24,16 @@ public class UserController {
         mv.setViewName("test");
         return mv;
     }
+
+    /*@RequestMapping("/login.do")
+    public void login(String userName, String userPass) throws Exception {
+
+        User user = new User();
+        user.setUserName(userName);
+        user.setUserPass(userPass);
+        User loginUser = userService.login(user);
+        System.out.println(user);
+
+    }*/
+
 }
