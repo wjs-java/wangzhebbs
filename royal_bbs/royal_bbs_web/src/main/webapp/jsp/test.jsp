@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-<jsp:forward page="article/findAll.do"/>
+登录失败，请重新登录！
 </body>
 </html>

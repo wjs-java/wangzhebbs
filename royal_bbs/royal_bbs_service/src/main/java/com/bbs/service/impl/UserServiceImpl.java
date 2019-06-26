@@ -14,6 +14,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
+
+
     /**
      * 查询所有用户数据
      * @return
@@ -24,7 +26,18 @@ public class UserServiceImpl implements UserService {
         return userDao.findAll();
     }
 
-
+    /**
+     * 用户登录
+     * @param userName
+     * @param userPass
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public User login(String userName, String userPass) throws Exception{
+        User login = userDao.login(userName, userPass);
+        return login;
+    }
 
     /**
      *

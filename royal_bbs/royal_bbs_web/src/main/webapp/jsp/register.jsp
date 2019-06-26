@@ -17,8 +17,6 @@
 <!-- 头部 -->
 <jsp:include page="common/header.jsp" />
 
-
-
 <div class="hm-header">
     <div class="hm-inner clearfix">
         <div class="hm-header-t clearfix">
@@ -83,9 +81,6 @@
         </div>
     </div>
 </div>
-
-
-
 
 <!-- 底部 -->
 <jsp:include page="common/footer.jsp"/>

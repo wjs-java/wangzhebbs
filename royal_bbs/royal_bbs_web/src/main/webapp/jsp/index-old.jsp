@@ -13,20 +13,13 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/hm-bbs.js"></script>
 </head>
 <body>
-
 <!-- 头部 -->
 <jsp:include page="common/header.jsp"/>
-
-
 <!-- 主体部分 -->
 <div class="hm-header"></div>
 <div class="hm-body hm-body-bgc">
     <div class="hm-inner">
         <div class="hm-banner"></div>
-
-
-
-
         <!--头部，帖子统计，搜索-->
         <div class="hm-bbs-info">
             <div class="hm-bbs-icon l" style="width:130px;">
