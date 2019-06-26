@@ -18,13 +18,18 @@ public interface UserService {
      * @return
      * @throws Exception
      */
-    User login(String userName, String userPass) throws Exception;
+    User findByUsernameAndUserPass(String userName, String userPass) throws Exception;
+
 
     /**
-     * 根据用户名和密码查找数据
-     * @param userName
-     * @param userPass
-     * @return
+     * 改变用户登录状态
+     * @param userId
+     * @param loginStatus
      */
-    User  findByUserNameAndPassword(String userName, String userPass);
+    void updateLoginStatus(Integer loginStatus,Integer userId);
+
+    //    用户注册
+    boolean saveRegister(User user);
+
+    User findByUsername(String username);
 }

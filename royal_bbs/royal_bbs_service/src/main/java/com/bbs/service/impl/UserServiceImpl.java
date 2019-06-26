@@ -14,8 +14,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
-
-
     /**
      * 查询所有用户数据
      * @return
@@ -34,26 +32,38 @@ public class UserServiceImpl implements UserService {
      * @throws Exception
      */
     @Override
-    public User login(String userName, String userPass) throws Exception{
-        User login = userDao.login(userName, userPass);
+    public User findByUsernameAndUserPass(String userName, String userPass) throws Exception{
+        User login = userDao.findByUsernameAndUserPass(userName, userPass);
         return login;
     }
 
+
+    @Override
+    public void updateLoginStatus( Integer loginStatus,Integer userId) {
+        userDao.updateLoginStatus(loginStatus,userId);
+    }
+
     /**
-     *
-     * 根据用户名和密码查询用户
-     * @param userName
-     * @param userPass
+     * 保存用户注册信息的方法
+     * @param user
      * @return
      */
     @Override
-    public User findByUserNameAndPassword(String userName, String userPass) {
-        User user = null;
-        try {
-            user = userDao.findByUserNameAndPassword(userName,userPass);
-        }catch (Exception e){
-            e.printStackTrace();
+    public boolean saveRegister(User user) {
+        User u = userDao.findByUsername(user.getUserName());
+        if (u!=null){
+            return false;
         }
-        return user;
+        userDao.saveRegister(user);
+        return true;
+    }
+    /**
+     * 查询数据库是否有该用户名的方法
+     * @param username
+     * @return
+     */
+    @Override
+    public User findByUsername(String username) {
+        return  userDao.findByUsername(username);
     }
 }

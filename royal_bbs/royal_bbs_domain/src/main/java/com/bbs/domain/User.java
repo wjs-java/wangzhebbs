@@ -19,6 +19,7 @@ public class User implements Serializable {
     private Integer isupdating;//申请升级(0-未申请,1-已申请)
     private Integer updateStatus;//申请升级审核状态(0-未处理,1-已处理)
 
+
     public Integer getUserId() {
         return userId;
     }
