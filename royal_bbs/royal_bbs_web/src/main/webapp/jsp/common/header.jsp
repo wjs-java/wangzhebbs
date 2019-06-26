@@ -34,7 +34,8 @@
                     <c:if test="${user.role == 3}">
                         欢迎 超级管理员：<a href="javascript:;" id="login" class="to-login">${user.userName}</a>
                     </c:if>
-                    <a href="register.do">【新用户注册】</a>
+                    <a href="/jsp/userInfo.jsp">个人中心</a>
+                    <a href="/user/logout.do">注销</a>
                 </c:if>
                 <div id="dialogBg"></div>
                 <div id="dialog" class="animated">

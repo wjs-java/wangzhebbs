@@ -35,12 +35,12 @@
             <div class="hm-bbs-info-in l" style="margin-left:30px;">
                 <div class="t clearfix"><h2 class="l">王者荣耀</h2></div>
                 <p>
-                    <span>今日帖子<strong>99</strong></span>
+                    <span>今日帖子<strong>${todayArticle}</strong></span>
                     <span>全部帖子<strong>${pageInfo.total}</strong></span>
                 </p>
             </div>
             <div class="search-box l">
-                <form action="${pageContext.request.contextPath}/user/findByLike.do" method="post">
+                <form action="${pageContext.request.contextPath}/article/findByLike.do" method="post">
                     <input type="text" class="txt l" placeholder="请输入关键字" name="msg">
                     <input type="submit" value="搜索" class="btn l"/>
                 </form>

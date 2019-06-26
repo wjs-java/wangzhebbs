@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
 
@@ -51,7 +53,7 @@ public class ArticleController {
      */
     @RequestMapping("/findAll.do")
     public ModelAndView findAll(@RequestParam(name = "page",required = true,defaultValue = "1") Integer page,
-                                @RequestParam(name = "size",required = true,defaultValue = "4") Integer size) throws Exception{
+                                @RequestParam(name = "size",required = true,defaultValue = "4") Integer size, HttpServletRequest request) throws Exception{
 
         ModelAndView mv = new ModelAndView();
 
@@ -59,9 +61,10 @@ public class ArticleController {
         //查询今日帖子数
         Integer todayArticle = articleService.findTodayArticle();
         PageInfo pageInfo = new PageInfo(articleList);
+        HttpSession session = request.getSession();
+        session.setAttribute("todayArticle",todayArticle);
 
         mv.addObject("pageInfo", pageInfo);
-        mv.addObject("todayArticle",todayArticle);
         mv.setViewName("index-page-old");
         return mv;
 
@@ -76,6 +79,7 @@ public class ArticleController {
         List<Article> byTitle = articleService.findByLike(msg,page,size);
         PageInfo pageInfo = new PageInfo(byTitle);
         mv.addObject("pageInfo",pageInfo);
+
         mv.setViewName("search-show");
         return mv;
     }
