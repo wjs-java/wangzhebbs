@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -18,7 +20,7 @@ public interface UserDao{
      * @throws Exception
      */
     @Select("select * from bbs_user_table where userName=#{userName} and userPass=#{userPass}")
-    User findByUsernameAndUserPass(@Param("userName")String userName,@Param("userPass")String userPass)throws Exception;
+    User login(@Param("userName")String userName,@Param("userPass")String userPass)throws Exception;
 
     /**
      * 查询所有用户数据
@@ -26,6 +28,7 @@ public interface UserDao{
      */
     @Select("select * from bbs_user_table")
     List<User> findAll();
+
 
 
     @Update("update bbs_user_table set loginStatus=#{loginStatus} where userId=#{userId}")
@@ -48,4 +51,13 @@ public interface UserDao{
      */
     @Select("select *from bbs_user_table where userName = #{userName}")
     User findByUsername(String username);
+
+    /**
+     * 根据用户名和密码获取用户
+     * @param userName
+     * @param userPass
+     * @return
+     */
+    @Select("select * from bbs_user_table where userName = #{userName} and userPass = #{userPass}")
+    User findByUserNameAndPassword(String userName, String userPass);
 }

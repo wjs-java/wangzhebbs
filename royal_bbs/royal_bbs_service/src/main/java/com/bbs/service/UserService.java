@@ -18,7 +18,15 @@ public interface UserService {
      * @return
      * @throws Exception
      */
-    User findByUsernameAndUserPass(String userName, String userPass) throws Exception;
+    User login(String userName, String userPass) throws Exception;
+
+    /**
+     * 根据用户名和密码查找数据
+     * @param userName
+     * @param userPass
+     * @return
+     */
+    User  findByUserNameAndPassword(String userName, String userPass);
 
 
     /**

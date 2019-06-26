@@ -17,6 +17,18 @@ public interface ArticleService {
      * 查询所有帖子
      * @return
      */
-    List<Article> findAll();
+    List<Article> findAll(Integer page,Integer size) throws Exception;
 
+    /**
+     * 查询今日帖子
+     * @return
+     */
+    Integer findTodayArticle();
+
+    /**
+     * 模糊查询
+     * @param msg
+     * @return
+     */
+    List<Article> findByLike(String msg,Integer page,Integer size);
 }

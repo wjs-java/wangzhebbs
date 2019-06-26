@@ -23,7 +23,7 @@
     <div class="hm-inner clearfix">
         <div class="hm-header-t clearfix">
             <h1 class="logo l">
-                <a href="javascript:;"><img src="images/logo.png" height="64" width="168" alt=""/></a>
+                <a href="javascript:;"><img src="${pageContext.request.contextPath}/images/logo.png" height="64" width="168" alt=""/></a>
             </h1>
             <div class="search-box l">
                 <form action="javascript:;">

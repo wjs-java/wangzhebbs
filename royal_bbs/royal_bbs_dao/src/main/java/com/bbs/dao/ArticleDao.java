@@ -16,4 +16,19 @@ public interface ArticleDao {
      */
     @Select("select * from bbs_article_table")
     List<Article> findAll();
+
+    /**
+     * 查询今日帖子
+     * @return
+     */
+    @Select("SELECT COUNT(*) FROM bbs_article_table WHERE TO_DAYS(sendTime) = TO_DAYS(NOW())")
+    Integer findTodayArticle();
+
+    /**
+     * 模糊查询
+     */
+
+    @Select("SELECT * FROM bbs_article_table WHERE title like #{msg}")
+    List<Article> findByLike(String msg);
+
 }

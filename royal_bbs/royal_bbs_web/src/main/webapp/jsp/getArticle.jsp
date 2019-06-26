@@ -18,7 +18,7 @@
 
 
 <!-- 头部 -->
-<jsp:include page="jsp/common/header.jsp" />
+<jsp:include page="common/header.jsp" />
 
 
 
@@ -29,7 +29,7 @@
         <!--帖子标题，点赞数，回复数，搜索-->
         <div class="hm-bbs-info">
             <div class="hm-bbs-icon l" style="width:130px;">
-                <span><img src="images/bbs-icon.png" height="80"/></span>
+                <span><img src="../images/bbs-icon.png" height="80"/></span>
             </div>
             <div class="hm-bbs-info-in l" style="margin-left:30px;">
                 <div class="t clearfix">
@@ -72,7 +72,7 @@
                 <!--原帖楼-->
                 <li class="floor clearfix">
                     <div class="floorer-info l">
-                        <div class="floorer-photo"><img src="images/default.png"/></div>
+                        <div class="floorer-photo"><img src="../images/default.png"/></div>
                         <div class="floorer-name">晨曦初露</div>
                     </div>
                     <div class="floor-con l">
@@ -94,7 +94,7 @@
                 <!-- 评论部分,一楼及以后 -->
                 <li class="floor clearfix">
                     <div class="floorer-info l">
-                        <div class="floorer-photo"><img src="images/default.png"/></div>
+                        <div class="floorer-photo"><img src="../images/default.png"/></div>
                         <div class="floorer-name">不哭不闹不炫耀</div>
                     </div>
                     <div class="floor-con l">
@@ -111,7 +111,7 @@
 
                                     <!-- 回复部分,楼中楼 -->
                                     <li class="clearfix">
-                                        <div class="floor-ans-pho l"><img src="images/default.png"/></div>
+                                        <div class="floor-ans-pho l"><img src="../images/default.png"/></div>
                                         <div class="floor-ans-con l">
                                             <span class="name">张无忌</span>：顶顶顶！
                                             <span class="ans-time">2017-05-24 10:11:00</span>
@@ -131,7 +131,7 @@
                 <!--二楼-->
                 <li class="floor clearfix">
                     <div class="floorer-info l">
-                        <div class="floorer-photo"><img src="images/default.png"/> </div>
+                        <div class="floorer-photo"><img src="../images/default.png"/> </div>
                         <div class="floorer-name">不哭不闹不炫耀</div>
                     </div>
                     <div class="floor-con l">
@@ -148,7 +148,7 @@
 
                                     <!-- 回复部分 -->
                                     <li class="clearfix">
-                                        <div class="floor-ans-pho l"><img src="images/default.png"/></div>
+                                        <div class="floor-ans-pho l"><img src="../images/default.png"/></div>
                                         <div class="floor-ans-con l">
                                             <span class="name">张无忌</span>：顶顶顶！
                                             <span class="ans-time">2017-05-24 10:11:00</span>
@@ -168,7 +168,7 @@
                 <!--三楼-->
                 <li class="floor clearfix">
                     <div class="floorer-info l">
-                        <div class="floorer-photo"><img src="images/default.png"/></div>
+                        <div class="floorer-photo"><img src="../images/default.png"/></div>
                         <div class="floorer-name">不哭不闹不炫耀</div>
                     </div>
                     <div class="floor-con l">
@@ -185,7 +185,7 @@
 
                                     <!-- 回复部分 -->
                                     <li class="clearfix">
-                                        <div class="floor-ans-pho l"><img src="images/default.png"/></div>
+                                        <div class="floor-ans-pho l"><img src="../images/default.png"/></div>
                                         <div class="floor-ans-con l">
                                             <span class="name">张无忌</span>：顶顶顶！
                                             <span class="ans-time">2017-05-24 10:11:00</span>
@@ -229,7 +229,7 @@
 
 
 <!-- 底部 -->
-<jsp:include page="jsp/common/footer.jsp"/>
+<jsp:include page="common/footer.jsp"/>
 
 
 

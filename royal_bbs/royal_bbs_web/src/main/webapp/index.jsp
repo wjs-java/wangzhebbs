@@ -12,6 +12,7 @@
 </head>
 <body>
 
-<jsp:forward page="/jsp/index-old.jsp"/>
+    <jsp:forward page="/article/findAll.do?page=1&size=5"/>
+
 </body>
 </html>

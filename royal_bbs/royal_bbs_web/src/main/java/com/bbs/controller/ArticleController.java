@@ -2,10 +2,12 @@ package com.bbs.controller;
 
 import com.bbs.domain.Article;
 import com.bbs.service.ArticleService;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Date;
@@ -44,18 +46,37 @@ public class ArticleController {
     }
 
     /**
-     * 查询所有帖子
+     * 查询所有帖子  修改成分页
      * @return
      */
     @RequestMapping("/findAll.do")
-    public ModelAndView findAll(){
+    public ModelAndView findAll(@RequestParam(name = "page",required = true,defaultValue = "1") Integer page,
+                                @RequestParam(name = "size",required = true,defaultValue = "4") Integer size) throws Exception{
 
         ModelAndView mv = new ModelAndView();
-        List<Article> articleList = articleService.findAll();
-        mv.addObject("articleList", articleList);
-        mv.setViewName("index-old");
+
+        List<Article> articleList = articleService.findAll(page,size);
+        //查询今日帖子数
+        Integer todayArticle = articleService.findTodayArticle();
+        PageInfo pageInfo = new PageInfo(articleList);
+
+        mv.addObject("pageInfo", pageInfo);
+        mv.addObject("todayArticle",todayArticle);
+        mv.setViewName("index-page-old");
         return mv;
 
     }
 
+    @RequestMapping("/findByLike.do")
+    public ModelAndView findByLike(String msg,
+                                   @RequestParam(name = "page",required = true,defaultValue = "1") Integer page,
+                                   @RequestParam(name = "size",required = true,defaultValue = "4") Integer size) throws Exception {
+        msg ="%"+msg+"%";
+        ModelAndView mv = new ModelAndView();
+        List<Article> byTitle = articleService.findByLike(msg,page,size);
+        PageInfo pageInfo = new PageInfo(byTitle);
+        mv.addObject("pageInfo",pageInfo);
+        mv.setViewName("search-show");
+        return mv;
+    }
 }
