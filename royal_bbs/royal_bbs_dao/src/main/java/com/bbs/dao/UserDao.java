@@ -18,7 +18,7 @@ public interface UserDao{
      * @throws Exception
      */
     @Select("select * from bbs_user_table where userName=#{userName} and userPass=#{userPass}")
-    User login(@Param("userName")String userName,@Param("userPass")String userPass)throws Exception;
+    User findByUsernameAndUserPass(@Param("userName")String userName,@Param("userPass")String userPass)throws Exception;
 
     /**
      * 查询所有用户数据
@@ -26,7 +26,6 @@ public interface UserDao{
      */
     @Select("select * from bbs_user_table")
     List<User> findAll();
-
 
 
     @Update("update bbs_user_table set loginStatus=#{loginStatus} where userId=#{userId}")
@@ -51,11 +50,11 @@ public interface UserDao{
     User findByUsername(String username);
 
     /**
-     * 根据用户名和密码获取用户
-     * @param userName
-     * @param userPass
+     * 查询在线人数
+     * @param loginStatus
      * @return
      */
-    @Select("select * from bbs_user_table where userName = #{userName} and userPass = #{userPass}")
-    User findByUserNameAndPassword(String userName, String userPass);
+    @Select("select * from bbs_user_table where loginStatus=#{loginStatus}")
+    List<User> findByLoginStatus(Integer loginStatus);
+
 }

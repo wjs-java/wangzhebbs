@@ -142,17 +142,10 @@
             <div class="aside l">
                 <div class="aside-box">
                     <h3 class="t">
-                        <a href="javascript:;">在线用户(2)</a>
+                        <a href="javascript:;" id="onlineUsers"></a>
                     </h3>
-                    <ul class="b clearfix">
-                        <li>
-                            <div><img src="../images/default.png" height="55"/> </div>
-                            <p>Mr.King</p>
-                        </li>
-                        <li>
-                            <div><img src="../images/default.png" height="55"/></div>
-                            <p>疯子</p>
-                        </li>
+                    <ul class="b clearfix" id="users">
+
                     </ul>
                 </div>
             </div>
@@ -214,5 +207,18 @@
         location.href = "${pageContext.request.contextPath}/article/findAll.do?page=1&size="
             + pageSize;
     }
+    $(function () {
+        $.get("${pageContext.request.contextPath}/user/onlineUser.do",function(data) {
+            $("#onlineUsers").html("在线人数（"+data.length+"）");
+            $.each(data,function (idx, user) {
+                var userName = user.userName;
+                var picUrl = user.picUrl;
+                $("#users").append(" <li>\n" +
+                    "                            <div><img src=\""+picUrl+"\" height=\"55\"/> </div>\n" +
+                    "                            <p>"+userName+"</p>\n" +
+                    "                        </li>");
+            })
+        },"json");
+    })
 </script>
 </html>

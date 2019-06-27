@@ -1,10 +1,8 @@
 package com.bbs.service.impl;
 
 import com.bbs.dao.UserDao;
-import com.bbs.domain.Article;
 import com.bbs.domain.User;
 import com.bbs.service.UserService;
-import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,7 +32,7 @@ public class UserServiceImpl implements UserService {
      * @throws Exception
      */
     @Override
-    public User findByUsernameAndUserPass(String userName, String userPass) throws Exception{
+    public User findByUserNameAndPassword(String userName, String userPass) throws Exception{
         User login = userDao.findByUsernameAndUserPass(userName, userPass);
         return login;
     }
@@ -69,5 +67,8 @@ public class UserServiceImpl implements UserService {
         return  userDao.findByUsername(username);
     }
 
-
+    @Override
+    public List<User> findByLoginStatus(Integer loginStatus) {
+        return userDao.findByLoginStatus(loginStatus);
+    }
 }
