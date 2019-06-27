@@ -2,6 +2,7 @@ package com.bbs.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 帖子详情

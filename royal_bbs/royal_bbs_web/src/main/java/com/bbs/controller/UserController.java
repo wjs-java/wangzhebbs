@@ -4,6 +4,7 @@ import com.bbs.domain.User;
 import com.bbs.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -31,7 +32,6 @@ public class UserController {
         mv.setViewName("test");
         return mv;
     }
-
     /**
      * 用户登录
      * @param
@@ -49,7 +49,7 @@ public class UserController {
             userService.updateLoginStatus(1,user1.getUserId());
             //登录成功
             request.getSession().setAttribute("user",user1);
-            
+
         }
 
         return user1;
@@ -120,6 +120,5 @@ public class UserController {
         List<User> users = userService.findByLoginStatus(1);
         return users;
     }
-
 
 }

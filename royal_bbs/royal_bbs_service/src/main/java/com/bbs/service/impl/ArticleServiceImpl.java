@@ -2,6 +2,7 @@ package com.bbs.service.impl;
 
 import com.bbs.dao.ArticleDao;
 import com.bbs.domain.Article;
+import com.bbs.domain.Comment;
 import com.bbs.service.ArticleService;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,5 +62,19 @@ public class ArticleServiceImpl implements ArticleService {
         PageHelper.startPage(page,size);
         return articleDao.findByLike(msg);
     }
+
+
+    /**
+     * 根据ID查询帖子内容
+     * @param articleId
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public Article findById(Integer articleId) throws Exception {
+
+        return articleDao.findById(articleId);
+    }
+
 
 }

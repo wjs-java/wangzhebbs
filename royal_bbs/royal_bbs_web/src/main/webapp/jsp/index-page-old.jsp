@@ -83,7 +83,7 @@
 
                     <li class="clearfix ding">
                         <div class="hm-index-title">
-                            <i class="set-to-top">${article.isTop}</i> <a href="getArticle.do">${article.title}</a>
+                            <i class="set-to-top">${article.isTop}</i> <a href="${pageContext.request.contextPath}/article/getArticle.do?articleId=${article.articleId}">${article.title}</a>
                         </div>
                         <div class="hm-index-con">${article.content}</div>
                         <div class="hm-index-info l">
@@ -91,7 +91,7 @@
                             <span class="post-time">${article.sendTime}</span>
                         </div>
                         <div class="hm-index-fun r">
-                            <span class="icon-like"><i></i>${article.upvoteCount}</span>
+                            <span class="icon-like" onclick="location='${pageContext.request.contextPath}'"><i></i>${article.upvoteCount}</span>
                             <span class="icon-talk"><i></i>${article.replyCount}</span>
                         </div>
                     </li>

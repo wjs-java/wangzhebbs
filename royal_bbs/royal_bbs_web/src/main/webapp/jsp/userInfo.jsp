@@ -28,7 +28,7 @@
     <div class="hm-inner clearfix">
         <div class="hm-header-t clearfix">
             <h1 class="logo l">
-                <a href="javascript:;"><img src="images/logo.png" height="64" width="168" alt=""/></a>
+                <a href="javascript:;"><img src="../images/logo.png" height="64" width="168" alt=""/></a>
             </h1>
             <div class="search-box l">
                 <form action="javascript:;">
@@ -54,7 +54,7 @@
             <!--左侧用户名，头像-->
             <div class="user-info-l l">
                 <div class="user-info-l-t">
-                    <img src="images/default.png"/>
+                    <img src="../images/default.png"/>
                     <div class="username">张无忌</div>
                 </div>
                 <ul class="user-info-l-b">
@@ -72,11 +72,11 @@
                 </ul>
 
 
-                <form action="#" method="post" enctype="multipart/form-data">
+                <form action="user/updateUser.do" method="post" enctype="multipart/form-data">
                     <ul class="bd">
                         <li class="clearfix">
                             <div class="info-l"><i class="red">*</i>用户名：</div>
-                            <div class="info-r"><input type="text" class="txt" value="" readonly="readonly"/></div>
+                            <div class="info-r"><input type="text" class="txt" value="userName"readonly="readonly"/></div>
                         </li>
                         <li class="clearfix">
                             <div class="info-l">邮箱地址：</div>

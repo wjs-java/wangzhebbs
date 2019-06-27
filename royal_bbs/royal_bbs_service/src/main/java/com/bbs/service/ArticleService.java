@@ -1,6 +1,7 @@
 package com.bbs.service;
 
 import com.bbs.domain.Article;
+import com.bbs.domain.Comment;
 
 import java.util.List;
 
@@ -31,4 +32,13 @@ public interface ArticleService {
      * @return
      */
     List<Article> findByLike(String msg,Integer page,Integer size);
+    /**
+     * 根据ID查询帖子内容
+     * @param articleId
+     * @return
+     * @throws Exception
+     */
+    Article findById(Integer articleId)throws Exception;
+
+
 }
