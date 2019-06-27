@@ -118,7 +118,7 @@ public class ArticleController {
     }
 
     /**
-     * 分页显示
+     * 模糊查询分页
      * @param msg
      * @param page
      * @param size

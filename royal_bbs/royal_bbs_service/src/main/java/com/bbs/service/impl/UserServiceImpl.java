@@ -1,8 +1,10 @@
 package com.bbs.service.impl;
 
 import com.bbs.dao.UserDao;
+import com.bbs.domain.Article;
 import com.bbs.domain.User;
 import com.bbs.service.UserService;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +22,8 @@ public class UserServiceImpl implements UserService {
      */
 
     @Override
-    public List<User> findAll() {
+    public List<User> findAll(Integer page,Integer size) {
+        PageHelper.startPage(page,size);
         return userDao.findAll();
     }
 
@@ -71,4 +74,6 @@ public class UserServiceImpl implements UserService {
     public List<User> findByLoginStatus(Integer loginStatus) {
         return userDao.findByLoginStatus(loginStatus);
     }
+
+
 }

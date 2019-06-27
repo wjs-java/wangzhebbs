@@ -34,12 +34,12 @@
                     <c:if test="${user.role == 3}">
                         欢迎 超级管理员：<a href="javascript:;" id="login" class="to-login">${user.userName}</a>
                     </c:if>
-                    <a href="/jsp/userInfo.jsp">个人中心</a>
-                    <a href="/user/logout.do">注销</a>
+                    <a href="${pageContext.request.contextPath}/jsp/userInfo.jsp">个人中心</a>
+                    <a href="${pageContext.request.contextPath}/user/logout.do">注销</a>
                 </c:if>
                 <div id="dialogBg"></div>
                 <div id="dialog" class="animated">
-                    <img class="dialogIco" width="50" height="40" src="images/ico.png"/>
+                    <img class="dialogIco" width="50" height="40" src="${pageContext.request.contextPath}/images/ico.png"/>
                     <div class="dialogTop" style="height:25px;">
                         <a href="javascript:;" class="closeDialogBtn">关闭</a>
                     </div>

@@ -9,7 +9,8 @@ public interface UserService {
      * 查询所有用户数据
      * @return
      */
-    List<User> findAll();
+    List<User> findAll(Integer page,Integer size);
+
 
 
     /**

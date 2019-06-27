@@ -23,7 +23,7 @@ public class UserController {
     /**
      * 查询所有用户
      * @return
-     */
+     *//*
     @RequestMapping("/findAll.do")
     public ModelAndView findAll(){
         ModelAndView mv = new ModelAndView();
@@ -31,7 +31,7 @@ public class UserController {
         mv.addObject("users",users);
         mv.setViewName("test");
         return mv;
-    }
+    }*/
     /**
      * 用户登录
      * @param

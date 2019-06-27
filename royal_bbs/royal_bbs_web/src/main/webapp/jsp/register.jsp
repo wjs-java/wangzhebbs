@@ -43,7 +43,7 @@
         <div class="reg-box">
             <h2>用户注册<span>（红色型号代表必填）</span></h2>
             <div class="reg-info">
-                <form action="${pageContext.request.contextPath}/login.do" method="post" id="userRegistered">
+                <form action="${pageContext.request.contextPath}/user/saveRegister.do" method="post" id="userRegistered">
                     <ul>
                         <li>
                             <div class="reg-l">
