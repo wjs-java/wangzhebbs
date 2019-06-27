@@ -1,8 +1,10 @@
 package com.bbs.dao;
 
 import com.bbs.domain.Article;
+import com.bbs.domain.Comment;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -45,5 +47,13 @@ public interface ArticleDao {
 
     @Select("SELECT * FROM bbs_article_table WHERE title like #{msg}")
     List<Article> findByLike(String msg);
+
+    /**
+     * 点赞功能
+     * @param article
+     */
+    @Update("update bbs_article_table set upvoteCount = #{upvoteCount} where articleId = #{articleId}")
+    void addLike(Article article);
+
 
 }

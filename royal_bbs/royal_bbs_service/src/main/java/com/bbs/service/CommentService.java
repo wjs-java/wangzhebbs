@@ -11,7 +11,7 @@ public interface CommentService {
      * 存储回复帖子
      * @throws Exception
      */
-    void save(Comment comment) throws Exception;
+    void save(Comment comment, Integer articleId) throws Exception;
 
 
     /**

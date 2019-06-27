@@ -76,5 +76,23 @@ public class ArticleServiceImpl implements ArticleService {
         return articleDao.findById(articleId);
     }
 
+    /**
+     * 点赞功能
+     * @param article
+     * @throws Exception
+     */
+    @Override
+    public void addLike(Article article) throws Exception {
+
+        articleDao.addLike(article);
+    }
+
+    //获取点赞数
+    @Override
+    public Integer findLikeById(Article article) throws Exception {
+        return null;
+    }
+
+
 
 }

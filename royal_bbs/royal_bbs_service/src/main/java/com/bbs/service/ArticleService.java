@@ -40,5 +40,21 @@ public interface ArticleService {
      */
     Article findById(Integer articleId)throws Exception;
 
+    /**
+     * 点赞功能
+     * @param article
+     * @throws Exception
+     */
+    void addLike(Article article)throws Exception;
+
+    /**
+     * 通过Id查询点赞数
+     * @param article
+     * @return
+     * @throws Exception
+     */
+    Integer findLikeById(Article article)throws Exception;
+
+
 
 }

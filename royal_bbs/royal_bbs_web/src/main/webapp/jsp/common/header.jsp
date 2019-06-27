@@ -78,13 +78,15 @@
     })
   $(function () {
       //显示弹框
-      $('.box #login').click(function () {
-          var className = $(this).attr('class');
-          $('#dialogBg').fadeIn(300);
-          $('#dialog').removeAttr('class').addClass('animated ' + className + '').fadeIn();
-          $('#userName').focus();
-          $("#j_fixedBar").hide();
-      });
+
+          $('.box #login').click(function () {
+              var className = $(this).attr('class');
+              $('#dialogBg').fadeIn(300);
+              $('#dialog').removeAttr('class').addClass('animated ' + className + '').fadeIn();
+              $('#userName').focus();
+              $("#j_fixedBar").hide();
+          });
+
 
       //关闭弹窗
       $('.closeDialogBtn').click(function () {

@@ -3,6 +3,7 @@ package com.bbs.dao;
 import com.bbs.domain.Comment;
 import com.bbs.domain.Reply;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -13,8 +14,8 @@ public interface CommentDao {
      * 保存评论贴
      * @param
      */
-    @Insert("insert into bbs_comment_table (commentContent,commentTime,commentUserName,commentStatus,articleId) values (#{commentContent},#{commentTime},#{commentUserName},#{commentStatus},#{articleId})")
-    void save(Comment comment) throws Exception;
+    @Insert("insert into bbs_comment_table (commentContent,commentTime,commentUserName,commentStatus,articleId) values (#{comment.commentContent},#{comment.commentTime},#{comment.commentUserName},#{comment.commentStatus},#{articleId})")
+    void save(@Param("comment") Comment comment,@Param("articleId") Integer articleId) throws Exception;
 
     /**
      * 根据ID查询帖子所有评论

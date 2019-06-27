@@ -1,11 +1,10 @@
 package com.bbs.controller;
 
-import com.bbs.domain.Article;
-import com.bbs.domain.Comment;
-import com.bbs.domain.Reply;
+import com.bbs.domain.*;
 import com.bbs.service.ArticleService;
 import com.bbs.service.CommentService;
 import com.bbs.service.ReplyService;
+import com.bbs.service.WordService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,6 +33,9 @@ public class ArticleController {
     @Autowired
     private ReplyService replyService;
 
+    @Autowired
+    private WordService wordService;
+
     /**
      * 发帖功能
      * @param title
@@ -42,15 +44,45 @@ public class ArticleController {
      * @throws Exception
      */
     @RequestMapping("/save.do")
-    public String save(String title,String content) throws Exception {
+    public String save(String title,String content, HttpServletRequest request) throws Exception {
+
+        //查询所有的敏感词汇
+        List<String> words = wordService.findAll();
+        for (String word : words) {
+
+            //字符串的长度
+            int l = word.length();
+
+            String s = "";
+            //目的为了获取敏感词汇的个数，几个字兑换为几个*
+            for (int i = 0; i < l; i++) {
+                s += "*";
+            }
+            //判断标题中是否有敏感词汇
+            if(title.contains(word)){
+                //如果有，则把该敏感词汇逐字替换为*
+                title = title.replace(word, s);
+            }
+
+            ////判断帖子中是否有敏感词汇
+            if(content.contains(word)){
+                //如果有，则把该敏感词汇逐字替换为*
+                content = content.replace(word, s);
+            }
+        }
+
+        User user = (User) request.getSession().getAttribute("user");
+        String userName = user.getUserName();
 
         Article article = new Article();
         article.setTitle(title);
         article.setContent(content);
         article.setSendTime(new Date());
-        article.setSenderName("李四");
+        article.setSenderName(userName);
         article.setIsTop(0);
         article.setReplyCount(0);
+
+
         article.setUpvoteCount(0);
         article.setBrowseCount(0);
         article.setZoneId(1);
@@ -59,6 +91,8 @@ public class ArticleController {
         return "redirect:findAll.do";
 
     }
+
+
 
     /**
      * 查询所有帖子  修改成分页
@@ -83,6 +117,14 @@ public class ArticleController {
 
     }
 
+    /**
+     * 分页显示
+     * @param msg
+     * @param page
+     * @param size
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("/findByLike.do")
     public ModelAndView findByLike(String msg,
                                    @RequestParam(name = "page",required = true,defaultValue = "1") Integer page,
@@ -139,4 +181,7 @@ public class ArticleController {
 
         return mv;
     }
+
+
+
 }

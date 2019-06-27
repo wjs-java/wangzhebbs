@@ -23,9 +23,9 @@ public class CommentServiceImpl implements CommentService {
      * @throws Exception
      */
     @Override
-    public void save(Comment comment) throws Exception {
+    public void save(Comment comment, Integer articleId) throws Exception {
 
-        commentDao.save(comment);
+        commentDao.save(comment, articleId);
     }
 
     /**

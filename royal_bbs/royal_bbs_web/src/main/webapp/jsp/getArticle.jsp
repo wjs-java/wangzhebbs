@@ -161,7 +161,7 @@
         </div>
 
         <!--发表评论-->
-        <div class="detail-to-comment">
+        <div class="detail-to-comment" id="huihu">
             <div class="tit"><a name="comment">发表评论</a></div>
             <!-- 未登录时候显示 <div class="con">您没有登录论坛，请登录后再进行回复</div>-->
 
@@ -218,7 +218,12 @@
 
 
 <div class="fixedBar" id="j_fixedBar">
+    <c:if test="${user != null}">
     <a href="#comment" class="newTopic"><span></span>回复</a>
+    </c:if>
+    <c:if test="${user == null}">
+        <a onclick="alert('请登录')" class="newTopic"><span></span>回复</a>
+    </c:if>
     <a href="#" class="goTop"><i></i><span>返回<br/>顶部</span></a>
 </div>
 
@@ -228,15 +233,27 @@
 <script type="text/javascript">
     //弹出回复框
     function showDialog(num, commentId) {
-        var loginUser = "${loginUser}";
-        // if(!loginUser){
-        // 	alert("请登录");
-        // 	return;
-        // }
+
+        var loginUser = "${user}";
+
+        if(!loginUser){
+      	alert("请登录");
+      	return;
+      }
         $("#commentId").val(commentId);
         $('.pop-box').css('display', 'block');
         $("#floorSpan").html(num);
     }
+
+    $(function () {
+        var user = "${user}";
+        if(!user){
+
+            $("#huihu").hide();
+        }else {
+            $("#huihu").css("display","block");
+        }
+    })
 
 </script>
 </html>

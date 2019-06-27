@@ -91,8 +91,9 @@
                             <span class="post-time">${article.sendTime}</span>
                         </div>
                         <div class="hm-index-fun r">
-                            <span class="icon-like" onclick="location='${pageContext.request.contextPath}'"><i></i>${article.upvoteCount}</span>
-                            <span class="icon-talk"><i></i>${article.replyCount}</span>
+                            <span class="icon-like" id="addLike"><i></i>${article.upvoteCount}</span>
+                            <span class="icon-like" style="display: none"><i></i>${article.upvoteCount}</span>
+                            <span class="icon-talk" onclick="location='${pageContext.request.contextPath}/article/findTalk.do'"><i></i>${article.replyCount}</span>
                         </div>
                     </li>
 
@@ -164,7 +165,12 @@
 
 <!-- 右边发帖，回顶部 -->
 <div class="fixedBar" id="j_fixedBar">
+    <c:if test="${user!=null}">
     <a id="newTopicBtn" href="javascript:;" class="newTopic"><span></span>发帖</a>
+    </c:if>
+    <c:if test="${user==null}">
+        <a onclick="alert('请登录')" class="newTopic"><span></span>发帖</a>
+    </c:if>
     <a href="#" class="goTop"><i></i><span>返回<br/>顶部</span></a>
 </div>
 
@@ -186,7 +192,7 @@
             </div>
             <div class="win_ft">
                 <div class="win_ft_in">
-                    <input type="submit" class="btn" value="发表" onclick="test()"/>
+                    <input type="submit" class="btn" value="发表" id="judge" onclick="test()"/>
                 </div>
             </div>
         </div>
@@ -207,9 +213,10 @@
         location.href = "${pageContext.request.contextPath}/article/findAll.do?page=1&size="
             + pageSize;
     }
+
     $(function () {
         $.get("${pageContext.request.contextPath}/user/onlineUser.do",function(data) {
-            $("#onlineUsers").html("在线人数（"+data.length+"）");
+            $("#onlineUsers").html("在线人数("+data.length+")");
             $.each(data,function (idx, user) {
                 var userName = user.userName;
                 var picUrl = user.picUrl;
@@ -219,6 +226,9 @@
                     "                        </li>");
             })
         },"json");
-    })
+
+    });
+
+
 </script>
 </html>
